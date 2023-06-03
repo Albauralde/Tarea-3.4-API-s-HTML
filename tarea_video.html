@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Reproducción de vídeo</title>
+<link href="estilos.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onload="cargando()" >
+
+
+    <video id="video" controls>
+        <source src="video.mp4" type=video/mp4> 
+        <source src="video.webm" type=video/webm>
+        <source src="video.ogv" type=video/ogg>
+        <p> Navegador no soportado </p>
+        
+    </video>
+
+
+
+
+<div>
+
+<button
+onclick="document.getElementById('video').play();">Reproducir</button>
+<button
+onclick="document.getElementById('video').pause();">Pausa</button>
+<button onclick="document.getElementById('video').volume +=
+0.1;">Subir Volumen</button>
+<button onclick="document.getElementById('video').volume -=
+0.1;">Bajar Volumen</button>
+
+</div>
+
+<script type="text/javascript">
+
+	function cargando(){alert('Esta operación puede demorarse unos minutos');}
+        
+	
+</script>
+
+</body>
+
+</html>
+
+
+
+    
+
+    
