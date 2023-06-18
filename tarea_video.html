@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Reproducción de vídeo</title>
+<link href="estilos.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <input onchange="cargando()" type="file" class="fileuploader" accept="video/*" style="display: none;">
+    <button class="fileuploader-btn">Select a Video File</button><br>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+   jQuery(document).ready(function($){
+
+// Click button to activate hidden file input
+$('.fileuploader-btn').on('click', function(){
+$('.fileuploader').click();
+});
+   
+
+// Click above calls the open dialog box
+// Once something is selected the change function will run
+$('.fileuploader').change(function(){
+
+// Create new FileReader as a variable
+var reader = new FileReader();
+
+// Onload Function will run after video has loaded
+reader.onload = function(file){
+var fileContent = file.target.result;
+$('body').append('<video id="video" src="' + fileContent + '" controls></video>');
+}
+
+// Get the selected video from Dialog
+reader.readAsDataURL(this.files[0]);
+
+});
+
+
+});
+   
+    </script>
+
+
+<script type="text/javascript">
+
+	function cargando(){alert('Esta operación puede demorarse unos minutos');};
+     
+</script>
+
+<div id="contenedor">
+    <button id="Reproducir"
+    onclick="document.getElementById('video').play();">Reproducir</button>
+    <button id="Pausa"
+    onclick="document.getElementById('video').pause();">Pausa</button>
+    <button id="Subir" onclick="document.getElementById('video').volume +=
+    0.1;">Subir Volumen</button>
+    <button id="Bajar" onclick="document.getElementById('video').volume -=
+    0.1;">Bajar Volumen</button>
+    
+</div>
+</body>
+
+</html>
+
+
+
+    
+
+    
